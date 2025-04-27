@@ -1,8 +1,9 @@
 import React from 'react';
 import "./ProductCard.css"
+import { API_BASE_URL } from '../utils/auth';
 
 const ProductCard = ({ product, onDelete, onEdit }) => {
-  const imageUrl = `http://localhost:8080/images/${product.image}`;
+  const imageUrl = `${API_BASE_URL.slice(0, -4)}images/${product.image}`;
 
   return (
     <div className="product-card">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './AddProductPage.css';
 import { useNavigate } from 'react-router-dom';
 import authFetch from '../../utils/auth';
+import { API_BASE_URL } from '../../utils/auth';
 
 const AddProductPage = () => {
   const [name, setName] = useState('');
@@ -34,7 +35,7 @@ const AddProductPage = () => {
         formData.append('image', image);
       }
 
-      const res = await authFetch('http://localhost:8080/api/admin/products', {
+      const res = await authFetch(`${API_BASE_URL}/admin/products`, {
         method: 'POST',
         body: formData,
       });

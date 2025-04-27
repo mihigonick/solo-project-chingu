@@ -4,6 +4,7 @@ import './AdminHomePage.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import authFetch from '../../utils/auth';
+import { API_BASE_URL } from '../../utils/auth';
 
 const AdminHomePage = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +14,7 @@ const AdminHomePage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await authFetch('http://localhost:8080/api/admin/products');
+        const res = await authFetch(`${API_BASE_URL}/admin/products`);
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Failed to fetch products');
         setProducts(data);
@@ -29,7 +30,7 @@ const AdminHomePage = () => {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     try {
-      const res = await authFetch(`http://localhost:8080/api/admin/products/${id}`, {
+      const res = await authFetch(`${API_BASE_URL}/admin/products/${id}`, {
         method: 'DELETE'
       });
       const data = await res.json();

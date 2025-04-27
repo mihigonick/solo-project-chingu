@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./AdminLoginPage.css";
 import authFetch from '../../utils/auth';
+import { API_BASE_URL } from '../../utils/auth';
+import './AdminLoginPage.css';
 
 const AdminLoginPage = () => {
   const [username, setUsername] = useState('');
@@ -14,7 +15,7 @@ const AdminLoginPage = () => {
     setErrorMsg(''); // reset previous errors
 
     try {
-      const res = await authFetch('http://localhost:8080/api/admin/login', {
+      const res = await authFetch(`${API_BASE_URL}/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

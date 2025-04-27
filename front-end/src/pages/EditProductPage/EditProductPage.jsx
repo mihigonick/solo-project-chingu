@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './EditProductPage.css';
 import authFetch from '../../utils/auth';
+import { API_BASE_URL } from '../../utils/auth';
+import './EditProductPage.css';
 
 const EditProductPage = () => {
   const { id } = useParams();
@@ -24,14 +25,14 @@ const EditProductPage = () => {
 
     const fetchProduct = async () => {
       try {
-        const res = await authFetch(`http://localhost:8080/api/admin/products/${id}`);
+        const res = await authFetch(`${API_BASE_URL}/admin/products/${id}`);
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Failed to fetch product');
         setName(data.name);
         setCategory(data.category);
         setDescription(data.description);
         setPrice(data.price);
-        setImageUrl(`http://localhost:8080/images/${data.image}`);
+        setImageUrl(`${API_BASE_URL.slice(0, -4)}images/${data.image}`);
       } catch (err) {
         setError(err.message);
       }
@@ -53,7 +54,7 @@ const EditProductPage = () => {
         formData.append('image', image);
       }
 
-      const res = await authFetch(`http://localhost:8080/api/admin/products/${id}`, {
+      const res = await authFetch(`${API_BASE_URL}/admin/products/${id}`, {
         method: 'PATCH',
         body: formData,
       });

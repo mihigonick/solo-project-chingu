@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import authFetch from '../../utils/auth';
+import { API_BASE_URL } from '../../utils/auth';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -6,7 +8,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch('http://localhost:8080/api/products');
+      const response = await fetch(`${API_BASE_URL}/products`);
       const data = await response.json();
       setProducts(data);
     };
@@ -20,7 +22,7 @@ const HomePage = () => {
       <ul className="product-list">
         {products.map((product) => (
           <li key={product._id} className="product-item">
-            <img src={`http://localhost:8080/images/${product.image}`} alt={product.name} />
+            <img src={`${API_BASE_URL.slice(0, -4)}images/${product.image}`} alt={product.name} />
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>${product.price}</p>
