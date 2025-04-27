@@ -1,0 +1,46 @@
+.product-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: #000;
+    color: white;
+    font-family: sans-serif;
+    border: none;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+.product-image {
+    width: 150px;
+    height: 150px;
+    margin-right: 1rem;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  
+  .product-details {
+    flex: 1;
+  }
+  
+  .product-actions {
+    margin-top: 1rem;
+  }
+  
+.edit-button,
+.delete-button {
+  padding: 10px 20px;
+  margin-right: 0.5rem;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: white;
+  color: black;
+}
