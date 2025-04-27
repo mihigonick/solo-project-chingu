@@ -1,5 +1,7 @@
 const express = require('express')
 const cors = require('cors');
+const helmet = require("helmet")
+const rateLimiter = require("express-rate-limit")
 
 const adminRoutes = require('./routes/admin.route')
 const authRoutes = require('./routes/auth.route')
@@ -10,9 +12,20 @@ const pageNotFound = require("./middleware/not.found")
 
 const app = express()
 
-//REMOVE
-app.use(cors())
+
+
+app.set('trust proxy', 1)
+
 app.use(express.json())
+
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+  })
+);
+app.use(cors())
+app.use(helmet())
 
 app.use('/images', express.static('public/images'))
 

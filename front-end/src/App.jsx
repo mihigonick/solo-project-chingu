@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import GetStartedPage from './pages/GetStartedPage/GetStartedPage';
-import HomePage from './pages/HomePage/HomePage';
-import AdminHomePage from './pages/AdminHomePage/AdminHomePage';
-import AdminLoginPage from './pages/AdminLoginPage/AdminLoginPage';
-import AddProductPage from './pages/AddProductPage/AddProductPage';
-import EditProductPage from './pages/EditProductPage/EditProductPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import GetStartedPage from './pages/GetStartedPage/GetStartedPage'
+import HomePage from './pages/HomePage/HomePage'
+import AdminHomePage from './pages/AdminHomePage/AdminHomePage'
+import AdminLoginPage from './pages/AdminLoginPage/AdminLoginPage'
+import AddProductPage from './pages/AddProductPage/AddProductPage'
+import EditProductPage from './pages/EditProductPage/EditProductPage'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/admin/edit-product/:id" element={<EditProductPage />} />
       </Routes>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
