@@ -27,7 +27,8 @@ app.use(
 app.use(cors())
 app.use(helmet())
 
-
+app.set("view engine", "ejs")
+app.set("views", "views")
 
 app.use("/api/admin/products", adminRoutes)
 app.use("/api/admin", authRoutes)

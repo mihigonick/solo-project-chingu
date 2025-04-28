@@ -1,7 +1,7 @@
 const Product = require('../models/product.model')
 const asyncWrapper = require('../middleware/async.wrapper')
 const {createCustomError} = require("../errors/custom.error")
-const deleteOldImage = require("../utils/delete.image")
+
  
 
 const getAllProducts = asyncWrapper(async(req, res, next) => {

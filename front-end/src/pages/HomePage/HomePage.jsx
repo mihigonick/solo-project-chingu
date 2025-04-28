@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import authFetch from '../../utils/auth';
 import { API_BASE_URL } from '../../utils/auth';
 import './HomePage.css';
 
@@ -22,7 +21,7 @@ const HomePage = () => {
       <ul className="product-list">
         {products.map((product) => (
           <li key={product._id} className="product-item">
-            <img src={`${API_BASE_URL.slice(0, -4)}images/${product.image}`} alt={product.name} />
+            <img src={product.image} alt={product.name} />
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>${product.price}</p>

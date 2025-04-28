@@ -3,7 +3,7 @@ import "./ProductCard.css"
 import { API_BASE_URL } from '../utils/auth';
 
 const ProductCard = ({ product, onDelete, onEdit }) => {
-  const imageUrl = `${API_BASE_URL.slice(0, -4)}images/${product.image}`;
+  const imageUrl = product.image;
 
   return (
     <div className="product-card">
