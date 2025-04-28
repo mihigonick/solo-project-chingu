@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './GetStartedPage.css'; // importe les styles CSS
+import './GetStartedPage.css'; 
 
 const GetStartedPage = () => {
   return (
