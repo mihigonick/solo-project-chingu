@@ -22,4 +22,4 @@ const authFetch = async (url, options = {}) => {
   return res
 };
 
-export default authFetch
+export { API_BASE_URL, authFetch as default }

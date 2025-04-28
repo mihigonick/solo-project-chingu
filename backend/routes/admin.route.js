@@ -1,5 +1,5 @@
 const express = require('express')
-const upload = require('../middleware/upload.image')
+const upload = require('../middleware/cloudinary')
 const authMiddleware = require('../middleware/auth.middleware')
 
 

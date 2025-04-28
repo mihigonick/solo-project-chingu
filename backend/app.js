@@ -27,7 +27,7 @@ app.use(
 app.use(cors())
 app.use(helmet())
 
-app.use('/images', express.static('public/images'))
+
 
 app.use("/api/admin/products", adminRoutes)
 app.use("/api/admin", authRoutes)
